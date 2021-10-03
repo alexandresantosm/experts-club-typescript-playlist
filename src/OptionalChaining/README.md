@@ -5,17 +5,23 @@ O encadeamento opcional nos permite escrever código em que o TypeScript pode in
 ## Access property in object
 
 ```ts
-    const firstName = student?.name?.firstname;
+const firstName = student?.name?.firstname;
 ```
 
 ## Function call
 
 ```ts
-    adventurer.someNonExistentMethod?.();
+adventurer.someNonExistentMethod?.();
 ```
 
 ## Access array item
 
 ```ts
-    const item = arr?.[3];
+const item = arr?.[3];
+```
+
+## Comando
+
+```bash
+yarn tsc src/OptionalChaining/index.ts && node src/OptionalChaining/index.js
 ```
