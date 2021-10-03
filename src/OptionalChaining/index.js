@@ -3,8 +3,11 @@ var user = {
     totalStars: 0,
     username: "alexandresantosm"
 };
-var getUser = function (user) {
+var getUser = function (user, options) {
+    var avatarUrl = options ? options.fields.avatarUrl : undefined;
     var username = user.username;
-    return console.log({ username: username });
+    return console.log({ username: username, avatarUrl: avatarUrl });
 };
-getUser(user);
+getUser(user, {
+    fields: {}
+});

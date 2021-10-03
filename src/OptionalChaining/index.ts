@@ -15,9 +15,12 @@ const user = {
     username: "alexandresantosm",
 };
 
-const getUser = (user: GithubUser) => {
+const getUser = (user: GithubUser, options?: logOptions) => {
+    const avatarUrl = options ? options.fields.avatarUrl : undefined;
     const { username } = user;
-    return console.log({ username });
+    return console.log({ username, avatarUrl });
 };
 
-getUser(user);
+getUser(user, {
+    fields: {}
+});
