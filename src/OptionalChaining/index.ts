@@ -1,7 +1,7 @@
 type GithubUser = { username: string};
 
 type logOptions = {
-    fields: {
+    fields?: {
         "user-id"?: number;
         avatarUrl?: string;
         totalStars?: number;
@@ -16,11 +16,14 @@ const user = {
 };
 
 const getUser = (user: GithubUser, options?: logOptions) => {
-    const avatarUrl = options ? options.fields.avatarUrl : undefined;
+    const avatarUrl = options 
+        ? options.fields 
+            ? options.fields.avatarUrl
+            : undefined
+        : undefined;
+        
     const { username } = user;
     return console.log({ username, avatarUrl });
 };
 
-getUser(user, {
-    fields: {}
-});
+getUser(user, {});

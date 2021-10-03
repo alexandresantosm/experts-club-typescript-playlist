@@ -4,10 +4,12 @@ var user = {
     username: "alexandresantosm"
 };
 var getUser = function (user, options) {
-    var avatarUrl = options ? options.fields.avatarUrl : undefined;
+    var avatarUrl = options
+        ? options.fields
+            ? options.fields.avatarUrl
+            : undefined
+        : undefined;
     var username = user.username;
     return console.log({ username: username, avatarUrl: avatarUrl });
 };
-getUser(user, {
-    fields: {}
-});
+getUser(user, {});
