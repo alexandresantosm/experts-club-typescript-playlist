@@ -42,3 +42,9 @@ Você pode pensar neste recurso como uma forma de "retroceder" para um valor pad
 ```
 
 Nullish Coalescing evita que alguns comportamentos não intencionais de 0, NaN e "" sejam tratados como valores falsos.
+
+## Comando
+
+```bash
+yarn tsc src/NullishCoalescing/index.ts && node src/NullishCoalescing/index.js
+```
