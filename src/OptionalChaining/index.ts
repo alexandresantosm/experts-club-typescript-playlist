@@ -1,4 +1,4 @@
-type GithubUser = { username: string};
+type GithubUser = { username: string, stars: number};
 
 type logOptions = {
     fields?: {
@@ -16,14 +16,18 @@ const user = {
 };
 
 const getUser = (user: GithubUser, options?: logOptions) => {
-    const avatarUrl = options 
-        ? options.fields 
-            ? options.fields.avatarUrl
-            : undefined
-        : undefined;
-        
+    const avatarUrl = options?.fields?.avatarUrl;
+    const userId = options?.fields?.["user-id"];
+    const stars = options?.fields?.getStars?.(user);
     const { username } = user;
-    return console.log({ username, avatarUrl });
+
+    return console.log({ userId, username, avatarUrl, stars });
 };
 
-getUser(user, {});
+getUser(user, {
+    fields: {
+        "user-id": 1,
+        avatarUrl: 'https://avatars0.githubusercontent.com/u/0',
+        getStars: (user: GithubUser) => user.stars,
+    }
+});
